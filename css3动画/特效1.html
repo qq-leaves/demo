@@ -1,0 +1,1383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <style>
+         .block {
+             position:relative;
+             width:200px;
+             height:200px;
+             border-radius:50%;
+             margin: 3% auto;
+             overflow: hidden;
+         }
+         .block:before{
+             content: "";
+             position: absolute;
+             z-index: 2;
+             width: 180px;
+             height: 180px;
+             border: 10px solid;
+             border-color: orange #22ffbe #22ffbe orange;
+             border-radius: 50%;
+            /* left: 0px;
+             top: 0px;*/
+             transition: all 0.3s linear;
+         }
+         .block:hover::before{
+             transform: rotatez(180deg);
+         }
+        img{
+            width:200px;
+            height:200px;
+        }
+         .ceng{
+             position: absolute;
+             opacity: 0;
+             width: 200px;
+             height: 200px;
+             z-index: 1;
+             border-radius:50%;
+             text-align: center;
+             transition: all 0.3s linear;
+             background-color: rgba(0, 0, 0, 0.38);
+         }
+         .block:hover .ceng{
+             opacity: 1;
+         }
+         .ceng span:nth-child(1){
+             font-size: 30px;
+             color: white;
+             display: block;
+         }
+         .ceng span:nth-child(2){
+             font-size: 20px;
+             color: white;
+             display: block;
+             margin: 5px 0;
+         }
+         .ceng i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng span:nth-child(4){
+             font-size:14px;
+             color: white;
+             display: block;
+         }
+         .ceng>div{
+             margin: 40px 0 ;
+         }
+
+        /*特效1*/
+         .te1 {
+             position: relative;
+             width: 200px;
+             height:200px;
+             margin: 10px auto;
+         }
+        .block1{
+            position: relative;
+            width: 200px;
+            height:200px;
+            border-radius: 50%;
+            transition: all 0.2s linear;
+        }
+        .te1:hover .block1 {
+            transform: rotatez(-90deg);
+        }
+        img{
+            width:200px;
+            height:200px;
+            border-radius: 50%;
+        }
+        .block1:before {
+            position: absolute;
+            content: "";
+            z-index: 2;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 10px solid;
+            left:0;
+            top:0;
+            border-color: rgba(241, 241, 241, 0.69);
+            transition: all 0.3s linear;
+        }
+        .ceng1{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            text-align: center;
+            opacity: 0;
+            left:-300px;
+            z-index: 1;
+            pointer-events: none;
+            background-color: rgba(0, 0, 0, 0.38);
+            transition:  all 0.2s linear;
+        }
+        .te1:hover .ceng1{
+            opacity: 1;
+            left:0;
+        }
+        .ceng1 span:nth-child(1){
+            font-size: 30px;
+            color: white;
+            display: block;
+        }
+         .ceng1 span:nth-child(2){
+             font-size: 20px;
+             color: white;
+             display: block;
+             margin: 5px 0;
+         }
+         .ceng1 i{
+             display: block;
+             width: 170px;
+             margin: 10px 15px;
+             border-top: 1px solid white;
+
+         }
+         .ceng1 span:nth-child(4){
+             font-size:14px;
+             color: white;
+             display: block;
+         }
+        .ceng1>div{
+            margin: 40px auto;
+        }
+    /* 特效2*/
+      .te2 {
+          width: 200px;
+          height: 200px;
+          position: relative;
+          margin: 20px auto;
+      }
+        .block2{
+            position: absolute;
+            width:200px;
+            height: 200px;
+            border-radius:50% ;
+           /* border: 1px solid black;*/
+            transition: all 0.2s ;
+            z-index: 1;
+        }
+        .te2:hover .block2 {
+            transform:scale(0.5);
+            z-index: 2;
+            left: 90px;
+        }
+        .block2:before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            width:180px;
+            height: 180px;
+            left:0;
+            top:0;
+            border-radius: 50%;
+            border:10px solid;
+            border-color: rgba(241, 241, 241, 0.69);
+        }
+        .ceng2{
+            position: absolute;
+            pointer-events: none;
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+            left: -300px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(49, 49, 49, 0.9);
+            opacity: 0;
+            transition: all 0.2s linear ;
+        }
+        .te2:hover .ceng2{
+            opacity: 1;
+            left: 0;
+        }
+        .ceng2 span:nth-child(1){
+            color: white;
+            font-size: 30px;
+            display: block;
+        }
+         .ceng2 span:nth-child(2){
+             color: white;
+             font-size: 20px;
+             display: block;
+         }
+         .ceng2 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng2 span:nth-child(4){
+             color: white;
+             font-size: 14px;
+             display: block;
+         }
+        .ceng2>div{
+            margin: 40px auto;
+        }
+       /* 特效3*/
+        .te3{
+            width:200px;
+            height: 200px;
+            position: relative;
+            margin: 20px auto;
+        }
+        .ceng3{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            z-index: 2;
+            text-align: center;
+            background-color: rgba(49, 49, 49, 0.9);
+            opacity: 0;
+            left: -300px;
+            position: absolute;
+            transition: all 0.2s linear;
+            pointer-events: none;
+        }
+        .te3:hover .ceng3{
+            left: 0;
+            opacity: 1;
+        }
+        .block3 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            opacity: 1;
+            transition: all 0.3s linear;
+        }
+        .block3:before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border:10px solid;
+            border-color: rgba(241, 241, 241, 0.69);
+        }
+        .te3:hover .block3 {
+            right:-300px;
+            opacity: 0;
+        }
+        .ceng3 span:nth-child(1) {
+            display: block;
+            color: white;
+            font-size: 30px;
+
+        }
+         .ceng3 span:nth-child(2) {
+             display: block;
+             color: white;
+             font-size: 20px;
+             margin: 5px 0;
+
+         }
+         .ceng3 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng3 span:nth-child(4) {
+             display: block;
+             color: white;
+             font-size: 14px;
+
+         }
+        .ceng3>div{
+            margin: 40px auto;
+        }
+       /*特效4*/
+         .te4 {
+             position: relative;
+             width: 200px;
+             height:200px;
+             margin: 10px auto;
+         }
+         .block4{
+             position: relative;
+             width: 200px;
+             height:200px;
+             border-radius: 50%;
+
+         }
+         img{
+             width:200px;
+             height:200px;
+             border-radius: 50%;
+         }
+         .block4:before {
+             position: absolute;
+             content: "";
+             z-index: 2;
+             width: 180px;
+             height: 180px;
+             border-radius: 50%;
+             border: 10px solid;
+             left:0;
+             top:0;
+             border-color: rgba(241, 241, 241, 0.69);
+             transition: all 0.3s linear;
+         }
+         .ceng4{
+             position: absolute;
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             text-align: center;
+             opacity: 0;
+             z-index: 1;
+             pointer-events: none;
+             background-color: rgba(49, 49, 49, 0.9);
+             transition:  all 0.2s linear;
+         }
+         .te4:hover .ceng4{
+             transform: rotatey(180deg);
+             opacity: 1;
+         }
+         .te4:hover .ceng4>div{
+             transform: rotatey(-180deg);
+
+         }
+         .ceng4 span:nth-child(1){
+             font-size: 30px;
+             color: white;
+             display: block;
+         }
+         .ceng4 span:nth-child(2){
+             font-size: 20px;
+             color: white;
+             display: block;
+             margin: 5px 0;
+         }
+         .ceng4 i{
+             display: block;
+             width: 170px;
+             margin: 10px 15px;
+             border-top: 1px solid white;
+
+         }
+         .ceng4 span:nth-child(4){
+             font-size:14px;
+             color: white;
+             display: block;
+         }
+         .ceng4>div{
+             margin: 40px auto;
+         }
+        /*特效5*/
+         .te5 {
+             position: relative;
+             width: 200px;
+             height:200px;
+             margin: 20px auto;
+         }
+         .block5{
+             position: relative;
+             width: 200px;
+             height:200px;
+             border-radius: 50%;
+             transition: all 0.2s linear;
+             opacity: 1;
+         }
+         .te5:hover .block5 {
+             transform: scale(1.5);
+             opacity: 0;
+         }
+         img{
+             width:200px;
+             height:200px;
+             border-radius: 50%;
+             transition: all 0.2s linear;
+             opacity: 1;
+         }
+         .te5:hover img  {
+             transform: scale(0.9);
+             opacity: 0;
+         }
+         .block5:before {
+             position: absolute;
+             content: "";
+             z-index: 1;
+             width: 180px;
+             height: 180px;
+             border-radius: 50%;
+             border: 10px solid;
+             left:0;
+             top:0;
+             opacity: 1;
+             border-color: rgba(241, 241, 241, 0.69);
+             transition: all 0.2s linear;
+         }
+         .te5:hover .block5::before   {
+             transform: scale(0.9);
+             opacity: 0;
+         }
+         .ceng5{
+             position: absolute;
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             text-align: center;
+             opacity: 0;
+             z-index: -1;
+             pointer-events: none;
+             background-color: rgba(49, 49, 49, 0.9);
+             transition:  all 0.2s linear;
+         }
+         .te5:hover .ceng5{
+             opacity: 1;
+             z-index: 3;
+         }
+
+         .ceng5 span:nth-child(1){
+             font-size: 30px;
+             color: white;
+             display: block;
+         }
+         .ceng5 span:nth-child(2){
+             font-size: 20px;
+             color: white;
+             display: block;
+             margin: 5px 0;
+         }
+         .ceng5 i{
+             display: block;
+             width: 170px;
+             margin: 10px 15px;
+             border-top: 1px solid white;
+
+         }
+         .ceng5 span:nth-child(4){
+             font-size:14px;
+             color: white;
+             display: block;
+         }
+         .ceng5>div{
+             margin: 40px auto;
+         }
+
+         /* 特效6*/
+         .te6 {
+             width: 200px;
+             height: 200px;
+             position: relative;
+             margin: 20px auto;
+         }
+         .block6{
+             position: absolute;
+             width:200px;
+             height: 200px;
+             border-radius:50% ;
+             /* border: 1px solid black;*/
+             transition: all 0.2s ;
+             z-index: 1;
+         }
+         .te6:hover .block6{
+             transform:scale(0.5);
+         }
+         .block6:before {
+             content: "";
+             position: absolute;
+             z-index: 1;
+             width:180px;
+             height: 180px;
+             left:0;
+             top:0;
+             border-radius: 50%;
+             border:10px solid;
+             border-color: rgba(241, 241, 241, 0.69);
+         }
+         .ceng6{
+             position: absolute;
+             pointer-events: none;
+             width: 200px;
+             height: 200px;
+             z-index: 2;
+             left: -300px;
+             text-align: center;
+             border-radius: 50%;
+             background-color: rgba(24, 24, 24, 0.9);
+             opacity: 0;
+             transition: all 0.2s linear ;
+         }
+         .te6:hover .ceng6{
+             opacity: 1;
+             left: 0;
+         }
+         .ceng6 span:nth-child(1){
+             color: white;
+             font-size: 30px;
+             display: block;
+         }
+         .ceng6 span:nth-child(2){
+             color: white;
+             font-size: 20px;
+             display: block;
+         }
+         .ceng6 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng6 span:nth-child(4){
+             color: white;
+             font-size: 14px;
+             display: block;
+         }
+         .ceng6>div{
+             margin: 40px auto;
+         }
+
+                /* 特效7*/
+         .te7{
+             width:200px;
+             height: 200px;
+             position: relative;
+             margin: 20px auto;
+         }
+         .ceng7{
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             z-index: 2;
+             text-align: center;
+             background-color: rgba(49, 49, 49, 0.9);
+             opacity: 0;
+             transform: scale(0.5);
+             position: absolute;
+             transition: all 0.2s linear;
+             pointer-events: none;
+         }
+         .te7:hover .ceng7{
+             transform: scale(1);
+             opacity: 1;
+         }
+         .block7 {
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             position: absolute;
+             z-index: 1;
+             opacity: 1;
+             transition: all 0.35s ease-in-out;
+         }
+         .block7:before {
+             content: "";
+             position: absolute;
+             width: 180px;
+             height: 180px;
+             border-radius: 50%;
+             border:10px solid;
+             border-color: rgba(241, 241, 241, 0.69);
+         }
+         .te7:hover .block7 {
+             transform:translatex(300px) rotatez(180deg);
+             opacity: 0;
+         }
+         .ceng7 span:nth-child(1) {
+             display: block;
+             color: white;
+             font-size: 30px;
+
+         }
+         .ceng7 span:nth-child(2) {
+             display: block;
+             color: white;
+             font-size: 20px;
+             margin: 5px 0;
+
+         }
+         .ceng7 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng7 span:nth-child(4) {
+             display: block;
+             color: white;
+             font-size: 14px;
+
+         }
+         .ceng7>div{
+             margin: 40px auto;
+         }
+
+        /*特效8*/
+         .te8{
+             width:200px;
+             height: 200px;
+             position: relative;
+             margin: 20px auto;
+         }
+         .ceng8{
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             z-index: 1;
+             text-align: center;
+             background-color: rgb(64, 64, 64);
+             left:-300px;
+             opacity: 0;
+             position: absolute;
+             transition: all 0.2s  linear;
+             pointer-events: none;
+             transform:scale(0.5);
+
+         }
+         .te8:hover .ceng8 {
+             left: 0px;
+             transform: scale(1);
+             opacity : 1;
+         }
+         .block8 {
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             position: absolute;
+             z-index: 1;
+             opacity: 1;
+             right: 0;
+             transition: all 0.2s linear;
+         }
+         .block8:before {
+             content: "";
+             position: absolute;
+             width: 180px;
+             height: 180px;
+             z-index: 1;
+             border-radius: 50%;
+             border:10px solid;
+             border-color: rgba(241, 241, 241, 0.69);
+             transition: all 0.2s linear;
+         }
+
+         .te8:hover .block8 {
+             transform: scale(0.5);
+             right:-300px;
+             opacity: 0;
+         }
+         .ceng8 span:nth-child(1) {
+             display: block;
+             color: white;
+             font-size: 30px;
+         }
+         .ceng8 span:nth-child(2) {
+             display: block;
+             color: white;
+             font-size: 20px;
+             margin: 5px 0;
+
+         }
+         .ceng8 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng8 span:nth-child(4) {
+             display: block;
+             color: white;
+             font-size: 14px;
+
+         }
+         .ceng8>div{
+             margin: 40px auto;
+         }
+         /* 特效9*/
+         .te9 {
+             width: 200px;
+             height: 200px;
+             position: relative;
+             margin: 20px auto;
+         }
+         .block9{
+             position: absolute;
+             width:200px;
+             height: 200px;
+             border-radius:50% ;
+             /* border: 1px solid black;*/
+             transition: all 0.2s ;
+             z-index: 1;
+         }
+         .te9:hover .block9 {
+             transform:scale(0.5);
+             z-index: 2;
+             top:44px;
+         }
+         .block9:before {
+             content: "";
+             position: absolute;
+             z-index: 1;
+             width:180px;
+             height: 180px;
+             left:0;
+             top:0;
+             border-radius: 50%;
+             border:10px solid;
+             border-color: rgba(241, 241, 241, 0.69);
+         }
+         .ceng9{
+             position: absolute;
+             pointer-events: none;
+             width: 200px;
+             height: 200px;
+             z-index: 1;
+             left: 0px;
+             text-align: center;
+             border-radius: 50%;
+             background-color: rgba(49, 49, 49, 0.9);
+             opacity: 0;
+             transform: scale(0.5);
+             transition: all 0.2s linear ;
+         }
+         .te9:hover .ceng9{
+             opacity: 1;
+            transform: scale(1);
+         }
+         .ceng9 span:nth-child(1){
+             color: white;
+             font-size: 30px;
+             display: block;
+         }
+         .ceng9 span:nth-child(2){
+             color: white;
+             font-size: 20px;
+             display: block;
+         }
+         .ceng9 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng9 span:nth-child(4){
+             color: white;
+             font-size: 14px;
+             display: block;
+         }
+         .ceng9>div{
+             margin: 40px auto;
+         }
+         /*特效10*/
+         .te10 {
+             position: relative;
+             width: 200px;
+             height:200px;
+             margin: 10px auto;
+         }
+         .block10{
+             position: relative;
+             width: 200px;
+             height:200px;
+             border-radius: 50%;
+             transition: all 0.3s linear;
+         }
+         .te10:hover{
+           /*  transform: scale(0.5);rotatey(180deg);*/
+             transform: rotatey(180deg);
+         }
+         .te10:hover .block10 {
+             transform: rotatey(90deg);
+             /*animation: k-animation 0.3s linear;*/
+         }
+        /* @keyframes k-animation {
+
+         }*/
+         img{
+             width:200px;
+             height:200px;
+             border-radius: 50%;
+         }
+         .block10:before {
+             position: absolute;
+             content: "";
+             z-index: 2;
+             width: 180px;
+             height: 180px;
+             border-radius: 50%;
+             border: 10px solid;
+             left:0;
+             top:0;
+             border-color: rgba(241, 241, 241, 0.69);
+             transition: all 0.3s linear;
+         }
+         .ceng10{
+             position: absolute;
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             text-align: center;
+             opacity: 0;
+             z-index: 1;
+             pointer-events: none;
+             background-color: rgba(49, 49, 49, 0.9);
+             transition:  all 0.2s linear;
+         }
+         .te10:hover .ceng10{
+             transform: rotatey(180deg);
+             opacity: 1;
+         }
+         .te10:hover .ceng10>div{
+             transform: rotatey(-180deg);
+
+         }
+         .ceng10 span:nth-child(1){
+             font-size: 30px;
+             color: white;
+             display: block;
+         }
+         .ceng10 span:nth-child(2){
+             font-size: 20px;
+             color: white;
+             display: block;
+             margin: 5px 0;
+         }
+         .ceng10 i{
+             display: block;
+             width: 170px;
+             margin: 10px 15px;
+             border-top: 1px solid white;
+
+         }
+         .ceng10 span:nth-child(4){
+             font-size:14px;
+             color: white;
+             display: block;
+         }
+         .ceng10>div{
+             margin: 40px auto;
+         }
+
+        /*特效11*/
+         .te11{
+             width:200px;
+             height: 200px;
+             position: relative;
+             margin: 20px auto;
+         }
+         .ceng11{
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             z-index: 2;
+             text-align: center;
+             background-color: rgba(49, 49, 49, 0.9);
+             opacity: 0;
+             right: -300px;
+             transform: scale(0.5);
+             position: absolute;
+             transition: all 0.2s linear;
+             pointer-events: none;
+         }
+         .te11:hover .ceng11{
+             transform: translatex(-300px) rotate(180deg);
+             opacity: 1;
+         }
+         .te11:hover .ceng11>div{
+             transform:rotate(-180deg);
+             opacity: 1;
+             margin: 60px auto;
+         }
+         .block11{
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             position: absolute;
+             z-index: 1;
+             opacity: 1;
+             transition: all 0.35s ease-in-out;
+         }
+         .block11:before {
+             content: "";
+             position: absolute;
+             width: 180px;
+             height: 180px;
+             border-radius: 50%;
+             border:10px solid;
+             border-color: rgba(241, 241, 241, 0.69);
+         }
+         .te11:hover .block11 {
+             transform:translatex(300px) rotatez(180deg);
+             opacity: 0;
+         }
+         .ceng11 span:nth-child(1) {
+             display: block;
+             color: white;
+             font-size: 30px;
+
+         }
+         .ceng11 span:nth-child(2) {
+             display: block;
+             color: white;
+             font-size: 20px;
+             margin: 5px 0;
+
+         }
+         .ceng11 i{
+             display: block;
+             width: 170px;
+             border-top: 1px solid white;
+             margin: 10px 15px;
+         }
+         .ceng11 span:nth-child(4) {
+             display: block;
+             color: white;
+             font-size: 14px;
+
+         }
+         .ceng11>div{
+             margin: 40px auto;
+         }
+    /*特效12*/
+        .te12{
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .block12 {
+            width: 200px;
+            height:200px;
+            border-radius: 50%;
+          /*  border:1px solid black;*/
+           position: absolute;
+            z-index: 1;
+        }
+        .block12:before{
+            content: "";
+            position: absolute;
+            z-index: 1;
+            width:180px;
+            height: 180px;
+            border-radius: 50%;
+            border:10px solid;
+            border-color: rgba(241, 241, 241, 0.69);
+        }
+        .ceng12 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+            text-align: center;
+            border-radius: 50%;
+            opacity: 0;
+            left: 0;
+            top:0;
+           background-color: rgba(45, 45, 45, 0.86);
+        }
+        .te12:hover .ceng12 {
+            opacity: 1;
+        }
+        .ceng12>div{
+            margin:40px auto ;
+        }
+         .zi_s{
+             position: absolute;
+             z-index: 3;
+             text-align: center;
+             left:-150px;
+             top:50px;
+             transition: all 0.2s linear;
+         }
+         .te12:hover .zi_s {
+             left:48px;
+         }
+        .zi_s span:nth-child(1) {
+            display: block;
+            font-size: 30px;
+            color: white;
+        }
+         .zi_s span:nth-child(2) {
+             display: block;
+             font-size: 20px;
+             color: white;
+         }
+         .zi_x{
+             text-align: center;
+             position: absolute;
+             z-index: 3;
+             right:-200px;
+             top:100px;
+             transition: all 0.2s linear;
+         }
+         .te12:hover .zi_x{
+             right:0px;
+         }
+         .zi_x i{
+             display: block;
+             width: 170px;
+             border-top:1px solid white;
+             margin: 10px 15px;
+         }
+         .zi_x span:nth-child(2) {
+             display: block;
+             font-size: 14px;
+             color: white;
+         }
+        .te13{
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            position: relative;
+            margin: 20px auto;
+        }
+        .block13 {
+            position: absolute;
+            width:200px;
+            height: 200px;
+            z-index: 1;
+            border-radius: 50%;
+            transition:all 0.3s  linear;
+        }
+         .te13:hover .block13{
+             transform-origin: 100% 100%;
+             transform: rotatey(-90deg);
+         }
+        .block13:before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 10px solid;
+            border-color: rgba(241, 241, 241, 0.69);
+        }
+        .ceng13 {
+            position: absolute;
+            width:200px;
+            height: 200px;
+            z-index: 1;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(26, 26, 30, 0.8);
+            transition:all 0.3s 0.2s linear;
+            transform: rotatey(-90deg);
+            transform-origin:0% 0%;
+
+        }
+        .te13:hover .ceng13{
+            transform-origin:0% 0%;
+            transform: rotatey(0deg);
+            z-index: 3;
+        }
+        .ceng13 span:nth-child(1) {
+            display: block;
+            color: white;
+            font-size: 30px;
+        }
+         .ceng13 span:nth-child(2) {
+             display: block;
+             color: white;
+             font-size: 20px;
+         }
+         .ceng13 i{
+             display: block;
+             width: 170px;
+             margin: 10px 15px;
+             border-color: white;
+         }
+         .ceng13 span:nth-child(4) {
+             display: block;
+             color: white;
+             font-size: 12px;
+         }
+        .ceng13>div{
+            margin: 40px auto;
+        }
+         /* 特效14*/
+         .te14 {
+             position: relative;
+             width: 200px;
+             height:200px;
+             margin: 10px auto;
+         }
+         .block14{
+             position: relative;
+             width: 200px;
+             height:200px;
+             border-radius: 50%;
+             transition: all 0.2s linear;
+         }
+         .te14:hover .block14 {
+             transform: rotatez(360deg) scale(0.5);
+         }
+         img{
+             width:200px;
+             height:200px;
+             border-radius: 50%;
+         }
+         .block14:before {
+             position: absolute;
+             content: "";
+             z-index: 2;
+             width: 180px;
+             height: 180px;
+             border-radius: 50%;
+             border: 10px solid;
+             left:0;
+             top:0;
+             border-color: rgba(241, 241, 241, 0.69);
+             transition: all 0.3s linear;
+         }
+         .ceng14{
+             position: absolute;
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             text-align: center;
+             opacity: 1;
+             left:0px;
+             z-index: 0;
+             pointer-events: none;
+             background-color: rgba(53, 53, 53, 1);
+             transform: scale(0.5);
+             transition:  all 0.2s linear;
+         }
+         .te14:hover .ceng14{
+             opacity: 1;
+             z-index: 1;
+             transform: rotatez(720deg);
+         }
+         .ceng14 span:nth-child(1){
+             font-size: 30px;
+             color: white;
+             display: block;
+         }
+         .ceng14 span:nth-child(2){
+             font-size: 20px;
+             color: white;
+             display: block;
+             margin: 5px 0;
+         }
+         .ceng14 i{
+             display: block;
+             width: 170px;
+             margin: 10px 15px;
+             border-top: 1px solid white;
+
+         }
+         .ceng14 span:nth-child(4){
+             font-size:14px;
+             color: white;
+             display: block;
+         }
+         .ceng14>div{
+             margin: 40px auto;
+         }
+    </style>
+</head>
+<body>
+<div class="block">
+    <div class="ceng">
+        <div>
+        <span>HEADING</span>
+        <span>HERE</span>
+        <i></i>
+        <span>Description goes here</span>
+        </div>
+    </div>
+    <div><img src="./image/1.jpg"/></div>
+</div>
+<div class="te1" >
+    <div class="ceng1">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block1">
+    <img src="./image/2.jpg"/>
+</div>
+</div>
+<div class="te2">
+    <div class="ceng2">
+            <div>
+                <span>HEADING</span>
+                <span>HEAE</span>
+                <i></i>
+                <span>Description goes here</span>
+            </div>
+    </div>
+    <div class="block2">
+        <img src="./image/3.jpg"/>
+    </div>
+</div>
+<div class="te3">
+    <div class="ceng3">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block3">
+        <img src="./image/4.jpg"/>
+    </div>
+</div>
+<div class="te4" >
+    <div class="ceng4">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block4">
+        <img src="./image/1.jpg"/>
+    </div>
+</div>
+<div class="te5" >
+    <div class="ceng5">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block5">
+        <img src="./image/1.jpg"/>
+    </div>
+</div>
+<div class="te6">
+    <div class="ceng6">
+        <div>
+            <span>HEADING</span>
+            <span>HEAE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block6">
+        <img src="./image/3.jpg"/>
+    </div>
+</div>
+<div class="te7">
+    <div class="ceng7">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block7">
+        <img src="./image/4.jpg"/>
+    </div>
+</div>
+<div class="te8">
+    <div class="ceng8">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block8">
+        <img src="./image/4.jpg"/>
+    </div>
+</div>
+<div class="te9">
+    <div class="ceng9">
+        <div>
+            <span>HEADING</span>
+            <span>HEAE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block9">
+        <img src="./image/3.jpg"/>
+    </div>
+</div>
+<div class="te10" >
+    <div class="ceng10">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block10">
+        <img src="./image/1.jpg"/>
+    </div>
+</div>
+<div class="te11">
+    <div class="block11">
+        <img src="./image/8.jpg "/>
+    </div>
+    <div class="ceng11">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+</div>
+<div class="te12">
+    <div>
+        <div class="zi_s" >
+        <span>HEADING</span>
+        <span>HEAE</span>
+        </div>
+        <div class="zi_x">
+        <i></i>
+        <span>Description goes here</span>
+        </div>
+        <div class="ceng12"></div>
+    </div>
+
+    <div class="block12">
+        <img src="./image/7.jpg"/>
+    </div>
+</div>
+<div class="te13" >
+    <div class="ceng13">
+        <div>
+            <span>HEADING</span>
+            <span>HERE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block13">
+        <img src="./image/5.jpg"/>
+    </div>
+</div>
+<div class="te14">
+    <div class="ceng14">
+        <div>
+            <span>HEADING</span>
+            <span>HEAE</span>
+            <i></i>
+            <span>Description goes here</span>
+        </div>
+    </div>
+    <div class="block14">
+        <img src="./image/3.jpg"/>
+    </div>
+</div>
+</body>
+</html>

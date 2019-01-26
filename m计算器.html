@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+      table{
+          width: 400px;
+          height: auto;
+          border-collapse: collapse;
+          margin: 0 auto ;
+          border:1px solid grey;
+      }
+      td{
+          border:1px solid grey;
+      }
+        .txt{
+            width:99.5%;
+            height: 60px;
+            border:1px solid grey;
+           text-align: right;
+            font-size: 30px;
+        }
+        .btn{
+            width: 100%;
+            height:60px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr><td colspan="4" ><input class="txt" type="text" value="0"></td></tr>
+    <tr>
+        <td colspan="2"><button class="btn">del</button></td>
+        <td colspan="2"><button class="btn">c</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">9</button></td>
+        <td><button class="btn">8</button></td>
+        <td><button class="btn">7</button></td>
+        <td><button class="btn">*</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">4</button></td>
+        <td><button class="btn">5</button></td>
+        <td><button class="btn">6</button></td>
+        <td><button class="btn">/</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">1</button></td>
+        <td><button class="btn">2</button></td>
+        <td><button class="btn">3</button></td>
+        <td><button class="btn">-</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">0</button></td>
+        <td><button class="btn">.</button></td>
+        <td><button class="btn">+</button></td>
+        <td><button class="btn">=</button></td>
+    </tr>
+</table>
+<script>
+    var btn=document.getElementsByClassName ("btn");
+    var txt=document.getElementsByClassName("txt")[0];
+    var res=[];
+    var count=0;
+    for(var i=0;i<btn.length;i++) {
+        btn[i].onclick = function () {
+            //isNaN判断是否为非数字
+            if (!isNaN(this.innerText) || this.innerText == ".") {
+                count=0;
+                if (txt.value == "0") {
+                    if (this.innerText == ".") {
+                        txt.value ="0"+ this.innerText;
+                    }
+                    else {
+                        txt.value = this.innerText;
+                    }
+                }
+                else {
+                    if (txt.value.indexOf(".") != -1) {
+                        if (this.innerText != ".") {
+                            txt.value="0" +this.innerText;
+                        }
+                    }
+                    else {
+                        txt.value = this.innerText;
+                    }
+                }
+            }
+            else{
+                var isres=false;
+                switch(this.innerText){
+                    case"+":isres=true;break;
+                    case"-":isres=true;break;
+                    case"*":isres=true;break;
+                    case"/":isres=true;break;
+                }
+                if(isres)
+                {
+                    count++;
+                    if(count>=2){
+                        res[res.length-1]=this.innerText;
+                    }else{
+                        res[res.length]=txt.value;
+                        res[res.length]=this.innerText;
+                    }
+                    txt.value="0";
+                }
+                 if(this.innerText=="="){
+                    res[res.length]=txt.value;
+                    txt.value=eval(res.join("")).toFixed(1);//计算表达式的
+                    res=[];
+                }
+                if(this.innerText =="c"){
+                    txt.value="0";
+                    res=[];
+                }
+                if(this.innerText=="del"){
+                    txt.value=txt.value.substr (0,txt.value.length-1);
+
+                    if(txt.value.length<=0){
+                        txt.value=0;
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

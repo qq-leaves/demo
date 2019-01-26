@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #101010;
+        }
+        .shaizi{
+            position: relative;
+            margin: 150px auto;
+            width: 300px;
+            height:300px;
+            border-radius: 50%;
+             /*border: 1px dashed black;*/
+            transform-origin: 50% 50%;
+            transform-style: preserve-3d;
+            animation: z-animate 3s linear infinite;
+            box-shadow: 0px 0px 20px #0000ff,
+            0px 0px 40px #3838ff,
+            0px 0px 60px #8787ff,
+            0px 0px 80px #c6c9ff,
+            0px 0px 100px #e3e5ff;
+        }
+        @keyframes z-animate {
+            from{
+                transform: rotatey(0deg);
+            }
+            to{
+                transform:  rotatey(360deg) ;
+            }
+        }
+        .shaizi>div{
+            position: absolute;
+            width: 300px;
+            height:300px;
+            border: 1px solid #fefe72;
+            font-size: 60px;
+            font-weight: bold;
+            color: #fefe72;
+            text-align:center;
+            line-height: 300px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 20px #0000ff,
+            0px 0px 40px #3838ff,
+            0px 0px 60px #8787ff,
+            0px 0px 80px #c6c9ff,
+            0px 0px 100px #e3e5ff;
+        }
+        .shaizi>div:nth-child(1){
+            transform:rotatey(10deg);
+        }
+        .shaizi>div:nth-child(2){
+            transform:rotatey(30deg);
+        }
+        .shaizi>div:nth-child(3){
+            transform: rotatey(60deg) ;
+        }
+        .shaizi>div:nth-child(4){
+            transform:rotatey(900deg);
+        }
+        .shaizi>div:nth-child(5){
+            transform:rotatey(120deg);
+        }
+        .shaizi>div:nth-child(6) {
+            transform: rotatey(180deg) ;
+        }
+        .shaizi>div:nth-child(1) ,.shaizi>div:nth-child(2){
+           border: 1px dashed yellow;
+        }
+        .shaizi>div:nth-child(3) ,.shaizi>div:nth-child(4){
+            border: 1px dashed #ff8097;
+        }
+        .shaizi>div:nth-child(5) ,.shaizi>div:nth-child(6){
+            border: 1px dashed #8a52ff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="shaizi">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</div>
+</body>
+</html>
