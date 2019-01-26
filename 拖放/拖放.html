@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #logo{
+            width: 100px;
+            height: 100px;
+        }
+        #block{
+            width: 200px;
+            height: 200px;
+            border: 1px solid silver;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<img id="logo" src="./logo/logo.png" draggable="true">
+<div id="block" ></div>
+<script>
+    var img=document.getElementById("logo");
+    img.ondragstart=function(e){//用户开始拖动元素时触发
+        e.dataTransfer.setData("image", e.target.id)
+    }//dataTransfer：设置或返回拖放目标上允许发生的拖放行为。
+  block.ondragover=function(e){//ondragover - 当某被拖动的对象
+  // 在另一对象容器范围内拖动时触发此事件
+        e.preventDefault();
+    }
+    block.ondrop=function(e){
+        var a= e.dataTransfer.getData("image");
+        this.appendChild(document.getElementById(a));
+    }
+    //将block写成document.body则不能拖动
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas" style="display:block;margin:40px auto;"></canvas>
+<script>
+    var WINDOW_WIDTH=800;
+    var WINDOW_HEIGHT=800;
+    window.onload=function(){
+        var canvas=document.getElementById("canvas");
+        var context=canvas.getContext("2d");
+        canvas.width=WINDOW_WIDTH;
+        canvas.height=WINDOW_HEIGHT;
+        var num=0;
+        setInterval(function(){
+            num++
+            rotate(context,num);
+        },50);
+
+    }
+    function rotate(cxt,num){
+        cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+        cxt.save();
+        cxt.translate(200,200);
+        cxt.rotate(num*Math.PI/180);
+        draw(cxt);
+        cxt.restore();
+    }
+    function draw(cxt){
+        cxt.beginPath();
+        cxt.fillStyle="red";
+        cxt.moveTo(0,0);
+        cxt.arcTo(100,-100,0,-200,100);
+        cxt.fill();
+        cxt.closePath();
+        cxt.beginPath();
+        cxt.fillStyle="yellow";
+        cxt.moveTo(0,0);
+        cxt.arcTo(100,100,200,0,100);
+        cxt.fill();
+        cxt.closePath();
+        cxt.beginPath();
+        cxt.fillStyle="blue";
+        cxt.moveTo(0,0);
+        cxt.arcTo(-100,100,0,200,100);
+        cxt.fill();
+        cxt.closePath();
+        cxt.beginPath();
+        cxt.fillStyle="green";
+        cxt.moveTo(0,0);
+        cxt.arcTo(-100,-100,-200,0,100);
+        cxt.fill();
+        cxt.closePath();
+
+    }
+</script>
+</body>
+</html>

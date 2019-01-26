@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //1.定义地图方法
+        function Map(){
+            //设置地图相关属性
+            this.className="map";
+            this._map=null;
+            //创建地图
+            this.createMap=function (){
+                if(this._map==null)
+                {
+                    this._map=document.createElement("div");
+                    this._map.className=this.className;
+                    document.body.appendChild(this._map);
+                }
+            }
+        }
+        //2.定义蛇方法
+        function Snack(){
+            //设置相关属性
+            this.className="snack";
+            this.size=30;
+            this._snackbody=[[4,1,null,"red"],[3,1,null,"white"],[2,1,null,"white"],[1,1,null,"white"]];
+            this.direct="right";
+            //创建蛇
+            this.createSnack=function (){
+                for(var key in this._snackbody){
+                    if(this._snackbody[key][2]==null){
+                        this._snackbody[key][2]=document.createElement("div");
+                        this._snackbody[key][2].className=this.className;
+                        this._snackbody[key][2].style.backgroundColor=this._snackbody[key][3];
+                        map._map.appendChild(this._snackbody[key][2]);
+                    }
+                    //让蛇的坐标排开成一行
+                    this._snackbody[key][2].style.left=this._snackbody[key][0]*this.size+"px";
+                    this._snackbody[key][2].style.top=this._snackbody[key][1]*this.size+"px";
+                }}
+            //写蛇运动
+               this.snackMove=function (){
+                   //蛇碰到墙，游戏结束
+                   if(this._snackbody[0][0]<0||this._snackbody[0][0]>29||this._snackbody[0][1]<0|| this._snackbody[0][1]>19){
+                       alert("GAME OVER!!!");
+                       clearInterval(timer);
+                       return false;
+                   }
+                //让蛇进行属性的传递
+                var len=this._snackbody.length-1;
+                   for(var i=len;i>0;i--){
+                       //如果蛇碰到自己身体，则蛇游戏结束
+                       if(this._snackbody[i][0]==this._snackbody[0][0]&&this._snackbody[i][1]==this._snackbody[0][1]){
+                           clearInterval(timer);
+                           alert("GAME OVER!!!");
+                           return false;
+                       }
+                   }
+                for(var i=len;i>0;i--)
+                {//蛇的后一节走前一节的位置
+                    this._snackbody[i][0]=this._snackbody[i-1][0];
+                    this._snackbody[i][1]=this._snackbody[i-1][1];
+                }
+                //设置蛇运动的方向 向前运动x轴加1 向下运动y+1
+                switch (this.direct) {
+                    case "right":
+                        this._snackbody[0][0] += 1;
+                        break;
+                    case "left":
+                        this._snackbody[0][0] -= 1;
+                        break;
+                    case "top":
+                        this._snackbody[0][1] -= 1;
+                        break;
+                    case "down":
+                        this._snackbody[0][1] += 1;
+                        break;
+                }
+                if(this._snackbody[0][0]==food.x&&this._snackbody[0][1]==food.y)
+                {//如果蛇头坐标与食物坐标相等，蛇末尾长度加一
+                    this._snackbody.push([
+                        this._snackbody[this._snackbody.length-1][0],
+                        this._snackbody[this._snackbody.length-1][1],
+                        null,
+                        "white"
+                    ]);
+                    food.createFood();//当蛇吃到食物，重新产生食物。
+                }
+                this.createSnack();//让界面上的显示效果动起来，调用方法。
+            }
+             //将蛇运动方向与键盘键值联系
+               this.setdirect=function (code){
+            switch (code){
+                case 37: this.direct="left"; break;
+                case 38: this.direct="top"; break;
+                case 39: this.direct="right"; break;
+                case 40: this.direct="down"; break;
+            }
+        }
+        }
+        //定义食物方法
+        function Food(){
+            //设置食物相关属性
+            this.className="food";
+            this._food=null;
+            this.x;
+            this.y;
+            //创建食物
+            this.createFood=function (){
+                if(this._food==null)
+                {
+                    this._food=document.createElement("div");
+                    this._food.className=this.className;
+                    map._map.appendChild(this._food);
+                }
+                //随机产生食物
+                this.x=Math.floor(Math.random()*30);
+                this.y=Math.floor(Math.random()*20);
+                this._food.style.left=(this.x*30)+"px";
+                this._food.style.top=(this.y*30)+"px";
+
+            }
+        }
+        //定义类
+        var map;
+        var snack;
+        var food;
+        var timer;
+        //定义页面加载事件
+        window.onload=function (){
+            //实例化类对象
+            map=new Map();
+            map.createMap();
+
+            snack=new Snack();
+            snack.createSnack();
+            //使用定时器控制蛇运动频率
+            timer=setInterval("snack.snackMove()",150);
+            food=new Food();
+            food.createFood();
+            //按键控制蛇运动
+            window.onkeyup=function (e) {
+                if (snack.direct == "left") {
+                    if (e.keyCode != 39) {//left的键值为39，当蛇向left运动，则按left键无效
+                        snack.setdirect(e.keyCode);
+                    }
+                }
+                if (snack.direct == "right") {
+                    if (e.keyCode != 37) {
+                        snack.setdirect(e.keyCode);
+                    }
+                }
+                if (snack.direct == "top") {
+                    if (e.keyCode != 40) {
+                        snack.setdirect(e.keyCode);
+                    }
+                }
+                if (snack.direct == "down") {
+                    if (e.keyCode != 38) {
+                        snack.setdirect(e.keyCode);
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .map{
+            width: 900px;
+            height: 600px;
+            background-color: black;
+            margin: 0 auto;
+            position: relative;
+        }
+        .snack{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+        }
+        .food{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
+<!--
+贪吃蛇代码步骤：
+1.创建蛇运动的地图：Map
+2.创建蛇：以数组形式存放蛇的每一节。用for循环遍历蛇的每一节，来控制蛇的长度
+3.写蛇运动：用for循环：让后一节走前一节的位置，按上下左右时，让蛇的运动方向改变，用键盘控制蛇运动的方向。
+4.创建蛇的食物：
+5.写当蛇与食物的坐标相等时，食物重新跑位置，蛇的长度加1（末尾加）
+6.写蛇碰到边界，或者自己，游戏结束。
+-->
+

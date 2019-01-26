@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .block{
+            width: 500px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid silver;
+        }
+        textarea{
+            resize: none;
+            width: 400px;
+            height: 150px;
+         }
+        .msg{
+            padding: 15px 20px;
+            margin:5px 30px ;
+            border-bottom: 1px dashed silver;
+        }
+        img{
+            width: 50px;
+            height:50px;
+        }
+        .msg div{
+            font-size: 14px;
+        }
+        .msg div span{
+            color: red;
+        }
+        .ctxt{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="block">
+    <ul>
+        <li>标题：<input type="text" class="b" id="txt"></li>
+        <li>内容：</li>
+        <li><textarea class="b"  id="content"></textarea></li>
+        <li><button id="btn">发表</button><button id="clear">清空</button></li>
+    </ul>
+    <div id="ctc"></div>
+
+</div>
+<script>
+   var btn=document.getElementById("btn");
+    var content=document.getElementById("content");
+    var txt=document.getElementById("txt");
+    var ctc=document.getElementById("ctc");
+    var btnclear=document.getElementById("clear");
+    btnclear.onclick=function(){
+        localStorage.clear();
+        shoumsg();
+    }
+
+    btn.onclick=function(){
+        var time=new Date();
+        var data={
+            "face":"./logo/logo.PNG","nickname":"叶子","tittle":txt.value,"content":content.value,"times":time.toLocaleString() };
+            //存储数据
+        localStorage.setItem(time.getTime(),JSON.stringify(data));
+        alert("发表成功！")
+        shoumsg();
+    }
+    shoumsg();
+    function shoumsg(){
+        ctc.innerHTML="";
+        var length=localStorage.length;
+        for(var i=length-1;i>=0;i--){
+            var key=localStorage.key(i);
+            var data=JSON.parse(localStorage.getItem(key));
+            var str='<div class="msg">'+
+                    '<div>'+
+                    '<img src="'+data.face+'">'+
+                    '昵称：<span>'+data.nickname+'</span>'+
+                    '标题：<span>'+data.tittle+'</span>'+
+                    '时间：<span>'+data.times+'</span>'+
+            '<div>'+
+            '内容：'+
+        '<div class="ctxt">'+data.content+'</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'
+            ctc.innerHTML+=str;
+        }
+    }
+</script>
+</body>
+</html>
